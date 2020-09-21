@@ -1,62 +1,118 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/screens/basket.dart';
 
 class Veggies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      padding: EdgeInsets.all(16.0),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      children: <Widget>[
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-        CardTile(veggiePic: Image.asset('images/category/veggies.png', width: 96.0, height: 96.0,), veggieName: 'Paneer',),
-        CardTile(veggiePic: Image.asset('images/category/fruits.png', width: 96.0, height: 96.0,), veggieName: 'Chhole',),
-      ],
+    return ListView.builder(
+      itemCount: kVegetablesList.length,
+      itemBuilder: (context, index) {
+        return ItemBox(
+          itemName: kVegetablesList[index]['name'],
+          itemImage: kVegetablesList[index]['iconPath'],
+        );
+      },
     );
   }
 }
 
-class CardTile extends StatelessWidget {
+class ItemBox extends StatefulWidget {
+  final String itemName;
+  final String itemImage;
 
-  final String veggieName;
-  final Image veggiePic;
+  ItemBox({this.itemName, this.itemImage});
 
-  CardTile({this.veggiePic, this.veggieName});
+  @override
+  _ItemBoxState createState() => _ItemBoxState();
+}
+
+class _ItemBoxState extends State<ItemBox> {
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4.0,
-      child: InkWell(
-        onTap: (){
-          print('HI');
-        },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            veggiePic,
-            Text(veggieName),
-          ],
-        ),
+    return Container(
+      height: 192.0,
+      margin: EdgeInsets.symmetric(horizontal: 20.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey,
+                    borderRadius: BorderRadius.circular(24.0),
+                    boxShadow: kShadowList,
+                  ),
+                  margin: EdgeInsets.only(top: 56.0),
+                ),
+                Align(
+                  child: Image.asset(widget.itemImage),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(top: 72, bottom: 24.0),
+              decoration: BoxDecoration(
+                color: kCardColor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(24.0),
+                  bottomRight: Radius.circular(24.0),
+                ),
+                boxShadow: kShadowList,
+              ),
+              child: InkWell(
+                splashColor: Colors.blueGrey,
+                onTap: (){
+                  setState(() {
+                    isSelected = !isSelected;
+                    kCardColor = isSelected ? Colors.blueAccent : Colors.white;
+                    list.add(widget.itemName);
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: Text(
+                    widget.itemName,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
+
+
+// Column(
+//     children: <Widget>[
+//       Container(
+//         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+//         margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           borderRadius: BorderRadius.circular(24.0),
+//         ),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.start,
+//           children: <Widget>[
+//             Icon(Icons.search),
+//             SizedBox(
+//               width: 16.0,
+//             ),
+//             Text('Search fruits you have'),
+//           ],
+//         ),
+//       ),
