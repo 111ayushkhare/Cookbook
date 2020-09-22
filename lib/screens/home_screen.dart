@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cookbook/vegetables.dart';
 import 'package:cookbook/fruits.dart';
+import 'package:cookbook/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -25,6 +26,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
           bottom: TabBar(
+            indicatorColor: Colors.white,
             labelPadding: EdgeInsets.all(16.0),
             labelStyle: TextStyle(
               fontWeight: FontWeight.bold,
@@ -46,27 +48,22 @@ class HomeScreen extends StatelessWidget {
             Fruits(),
           ],
         ),
-        // floatingActionButton: FloatingActionButton.extended(
-        //   onPressed: () {},
-        //   elevation: 4.0,
-        //   label: Text('Cook'),
-        // ),
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.centerFloat,
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text('Home',),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               title: Text('Favorite'),
             ),
           ],
-          backgroundColor: Colors.yellow,
+          backgroundColor: kBottomNavigationColor,
         ),
       ),
     );
   }
 }
+
+//FCC875

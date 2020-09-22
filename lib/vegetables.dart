@@ -6,14 +6,17 @@ import 'package:cookbook/screens/basket.dart';
 class Veggies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: kVegetablesList.length,
-      itemBuilder: (context, index) {
-        return ItemBox(
-          itemName: kVegetablesList[index]['name'],
-          itemImage: kVegetablesList[index]['iconPath'],
-        );
-      },
+    return Container(
+      color: kHomeScreenBackgroundColor,
+      child: ListView.builder(
+        itemCount: kVegetablesList.length,
+        itemBuilder: (context, index) {
+          return ItemBox(
+            itemName: kVegetablesList[index]['name'],
+            itemImage: kVegetablesList[index]['iconPath'],
+          );
+        },
+      ),
     );
   }
 }
@@ -43,7 +46,7 @@ class _ItemBoxState extends State<ItemBox> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey,
+                    color: kCardItemBackgroundColor,
                     borderRadius: BorderRadius.circular(24.0),
                     boxShadow: kShadowList,
                   ),
@@ -59,7 +62,7 @@ class _ItemBoxState extends State<ItemBox> {
             child: Container(
               margin: EdgeInsets.only(top: 72, bottom: 24.0),
               decoration: BoxDecoration(
-                color: kCardColor,
+                color: kCardColorV,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(24.0),
                   bottomRight: Radius.circular(24.0),
@@ -67,12 +70,16 @@ class _ItemBoxState extends State<ItemBox> {
                 boxShadow: kShadowList,
               ),
               child: InkWell(
-                splashColor: Colors.blueGrey,
                 onTap: (){
                   setState(() {
                     isSelected = !isSelected;
-                    kCardColor = isSelected ? Colors.blueAccent : Colors.white;
-                    list.add(widget.itemName);
+                    kCardColorV = isSelected ? kCardSelectedColorV : kCardUnselectedColorV;
+                    kCardTextColorV = isSelected ? kCardSelectedTextColorV : kCardUnselectedTextColorV;
+                    if(isSelected) {
+                      list.add(widget.itemName);
+                    } else {
+                      list.remove(widget.itemName);
+                    }
                   });
                 },
                 child: Padding(
@@ -82,6 +89,7 @@ class _ItemBoxState extends State<ItemBox> {
                     style: TextStyle(
                       fontSize: 16.0,
                       fontStyle: FontStyle.italic,
+                      color: kCardTextColorV,
                     ),
                   ),
                 ),

@@ -6,14 +6,17 @@ import 'package:cookbook/screens/basket.dart';
 class Fruits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: kFruitsList.length,
-      itemBuilder: (context, index) {
-        return ItemBox(
-          itemName: kFruitsList[index]['name'],
-          itemImage: kFruitsList[index]['iconPath'],
-        );
-      },
+    return Container(
+      color: kHomeScreenBackgroundColor,
+      child: ListView.builder(
+        itemCount: kFruitsList.length,
+        itemBuilder: (context, index) {
+          return ItemBox(
+            itemName: kFruitsList[index]['name'],
+            itemImage: kFruitsList[index]['iconPath'],
+          );
+        },
+      ),
     );
   }
 }
@@ -43,7 +46,7 @@ class _ItemBoxState extends State<ItemBox> {
               children: <Widget>[
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey,
+                    color: kCardItemBackgroundColor,
                     borderRadius: BorderRadius.circular(24.0),
                     boxShadow: kShadowList,
                   ),
@@ -59,7 +62,7 @@ class _ItemBoxState extends State<ItemBox> {
             child: Container(
                 margin: EdgeInsets.only(top: 72, bottom: 24.0),
                 decoration: BoxDecoration(
-                  color: kCardColor,
+                  color: kCardColorF,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(24.0),
                     bottomRight: Radius.circular(24.0),
@@ -67,21 +70,26 @@ class _ItemBoxState extends State<ItemBox> {
                   boxShadow: kShadowList,
                 ),
                 child: InkWell(
-                  splashColor: Colors.blueGrey,
                   onTap: (){
                     setState(() {
                       isSelected = !isSelected;
-                      kCardColor = isSelected ? Colors.blueAccent : Colors.white;
-                      list.add(widget.itemName);
+                      kCardColorF = isSelected ? kCardSelectedColorF : kCardUnselectedColorF;
+                      kCardTextColorF = isSelected ? kCardSelectedTextColorF : kCardUnselectedTextColorF;
+                      if(isSelected) {
+                        list.add(widget.itemName);
+                      } else {
+                        list.remove(widget.itemName);
+                      }
                     });
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(32.0),
                     child: Text(
                       widget.itemName,
-                      textScaleFactor: 1.5,
                       style: TextStyle(
+                        fontSize: 16.0,
                         fontStyle: FontStyle.italic,
+                        color: kCardTextColorF
                       ),
                     ),
                   ),
