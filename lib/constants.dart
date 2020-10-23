@@ -50,11 +50,8 @@ var kFruitsList = [
   {'name': 'Banana', 'iconPath' : 'images/fruits/banana.png'},
 ];
 
-// var map = [
-//   {
-//     "Paneer" : ['Shahi Paneer', 'Palak Paneer', 'Panner Butter Masala', 'Paneer Mutter'],
-//   },
-//   {
-//     "Chhole" : ['Chhola', 'Chhola Paneer'],
-//   },
-// ];
+Map<String, List<String>> mp = {
+  "Paneer" : ['Shahi Paneer', 'Palak Paneer', 'Panner Butter Masala', 'Paneer Mutter'],
+  "Chhole" : ['Chhola', 'Chhola Paneer'],
+  "Salad" : ['fruit salad', 'papad'],
+};

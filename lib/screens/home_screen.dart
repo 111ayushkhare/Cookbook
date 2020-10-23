@@ -55,6 +55,10 @@ class HomeScreen extends StatelessWidget {
               title: Text('Home',),
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.camera_alt),
+              title: Text('Capture',),
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               title: Text('Favorite'),
             ),
@@ -65,5 +69,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-//FCC875
