@@ -101,26 +101,3 @@ class _ItemBoxState extends State<ItemBox> {
     );
   }
 }
-
-
-
-// Column(
-//     children: <Widget>[
-//       Container(
-//         padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-//         margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-//         decoration: BoxDecoration(
-//           color: Colors.white,
-//           borderRadius: BorderRadius.circular(24.0),
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.start,
-//           children: <Widget>[
-//             Icon(Icons.search),
-//             SizedBox(
-//               width: 16.0,
-//             ),
-//             Text('Search fruits you have'),
-//           ],
-//         ),
-//       ),

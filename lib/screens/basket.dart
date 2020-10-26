@@ -24,24 +24,55 @@ class _BasketState extends State<Basket> {
         appBar: AppBar(
           title: Text('Basket'),
         ),
-        body: ListView(
-          shrinkWrap: true,
-          children: list.map((element) => Text(element)).toList(),
+        body: ListView.builder(
+          itemCount: list.length,
+          itemBuilder: (context, index) {
+            return BasketCard(basketItem: list[index],);
+          },
+          // shrinkWrap: true,
+          // children: list.map((element) => Text(element)).toList(),
         ),
-        floatingActionButton: FloatingActionButton.extended(
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Results(available: list,)));
           },
-          label: Text(
-            'Go!',
-            style: TextStyle(
-              color: kPrimaryColor,
-            ),
+          child: Icon(
+            Icons.fastfood,
+            color: kPrimaryColor,
           ),
           backgroundColor: kBottomNavigationColor,
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
+    );
+  }
+}
+
+class BasketCard extends StatefulWidget {
+  final String basketItem;
+
+  BasketCard({this.basketItem});
+
+  @override
+  _BasketCardState createState() => _BasketCardState();
+}
+
+class _BasketCardState extends State<BasketCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            color: Colors.white,
+            child: ListTile(
+              title: Text(widget.basketItem),
+              trailing: Icon(Icons.delete,),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

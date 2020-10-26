@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:cookbook/vegetables.dart';
-import 'package:cookbook/fruits.dart';
+import 'package:cookbook/categories/vegetables.dart';
+import 'package:cookbook/categories/fruits.dart';
+import 'package:cookbook/categories/beverages.dart';
+import 'package:cookbook/categories/non_veg.dart';
 import 'package:cookbook/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 4,
       child: Scaffold(
         drawer: Drawer(),
         appBar: AppBar(
@@ -26,6 +28,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
           bottom: TabBar(
+            isScrollable: true,
             indicatorColor: Colors.white,
             labelPadding: EdgeInsets.all(16.0),
             labelStyle: TextStyle(
@@ -39,6 +42,10 @@ class HomeScreen extends StatelessWidget {
               Text(
                 'Fruits',
               ),
+              Text(
+                'Beverages',
+              ),
+              Text('Non-Veg',),
             ],
           ),
         ),
@@ -46,17 +53,23 @@ class HomeScreen extends StatelessWidget {
           children: [
             Veggies(),
             Fruits(),
+            Bevarages(),
+            NonVeg(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text('Home',),
+              title: Text(
+                'Home',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.camera_alt),
-              title: Text('Capture',),
+              title: Text(
+                'Capture',
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),

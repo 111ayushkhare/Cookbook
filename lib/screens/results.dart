@@ -21,24 +21,15 @@ class _ResultsState extends State<Results> {
       for (int i = 0; i < widget.available.length; i++) {
         if (mp.containsKey(widget.available[i])) {
           print(mp[widget.available]);
-          // for (int j = 0; j < mp[widget.available].length; j++) {
-          //   print(mp[widget.available][j]);
-          //   resultDishes.add(mp[widget.available][j]);
-          // }
 
           mp[widget.available[i]].forEach((element) {
             print(element);
-            resultDishes.add(element);
+            if (!resultDishes.contains(element)) {
+              resultDishes.add(element);
+            }
           });
         }
       }
-      // if (mp.containsKey(widget.available.elementAt(0))) {
-      //   resultDishes.add(mp[widget.available.elementAt(0)]);
-      //   print(widget.available.elementAt(0));
-      // }
-      // mp.forEach((key, value) {
-      //   print('k: $key , v: $value' );
-      // });
     });
     super.initState();
   }
@@ -55,11 +46,45 @@ class _ResultsState extends State<Results> {
         appBar: AppBar(
           title: Text('Dishes You Can COOK'),
         ),
-        body: ListView(
-          shrinkWrap: true,
-          children: resultDishes.map((e) => Text(e)).toList(),
+        body: ListView.builder(
+          itemCount: resultDishes.length,
+          itemBuilder: (context, index) {
+            return ResultTile(dishName: resultDishes[index],);
+          },
+          // shrinkWrap: true,
+          // children: resultDishes.map((e) => Text(e)).toList(),
         ),
       ),
+    );
+  }
+}
+
+class ResultTile extends StatefulWidget {
+  final String dishName;
+
+  ResultTile({this.dishName});
+
+  @override
+  _ResultTileState createState() => _ResultTileState();
+}
+
+class _ResultTileState extends State<ResultTile> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            color: Colors.blue[50],
+            child: ListTile(
+              leading: Icon(Icons.favorite_border),
+              title: Text(widget.dishName),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

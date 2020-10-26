@@ -47,11 +47,17 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/vegetables/paneer.png
+    - images/vegetables/rajma.png
     - images/vegetables/chhole.png
+    - images/vegetables/bhindi.png
+    - images/vegetables/karela.png
+    - images/vegetables/lauki.png
+    - images/vegetables/pea.png
     - images/vegetables/pepper.png
     - images/vegetables/pumpkin.png
     - images/vegetables/potato.png
     - images/vegetables/spinach.png
+    - images/vegetables/parwal.png
     - images/vegetables/cauliflower.png
     - images/vegetables/broccoli.png
     - images/vegetables/cabbage.png
@@ -60,6 +66,14 @@ flutter:
     - images/fruits/papaya.png
     - images/fruits/mango.png
     - images/fruits/banana.png
+    - images/non-veg/chicken.png
+    - images/non-veg/beef.png
+    - images/non-veg/fish.png
+    - images/non-veg/pork.png
+    - images/non-veg/meat.png
+    - images/non-veg/crab.png
+    - images/non-veg/pigeon.png
+    - images/non-veg/rabbit.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
