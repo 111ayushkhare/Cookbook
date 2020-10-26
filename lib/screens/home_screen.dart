@@ -4,6 +4,7 @@ import 'package:cookbook/categories/fruits.dart';
 import 'package:cookbook/categories/beverages.dart';
 import 'package:cookbook/categories/non_veg.dart';
 import 'package:cookbook/constants.dart';
+import 'package:cookbook/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -45,7 +46,9 @@ class HomeScreen extends StatelessWidget {
               Text(
                 'Beverages',
               ),
-              Text('Non-Veg',),
+              Text(
+                'Non-Veg',
+              ),
             ],
           ),
         ),
@@ -77,6 +80,13 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
           backgroundColor: kBottomNavigationColor,
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: kCardItemBackgroundColor,
+          child: Icon(Icons.shopping_cart, color: kPrimaryColor,),
+          onPressed: () {
+            Navigator.pushNamed(context, 'Basket');
+          },
         ),
       ),
     );

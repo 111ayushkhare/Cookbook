@@ -1,6 +1,7 @@
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/results.dart';
 import 'package:flutter/material.dart';
+import 'package:cookbook/colors.dart';
 
 List<String> list = List();
 
@@ -27,14 +28,21 @@ class _BasketState extends State<Basket> {
         body: ListView.builder(
           itemCount: list.length,
           itemBuilder: (context, index) {
-            return BasketCard(basketItem: list[index],);
+            return BasketCard(
+              basketItem: list[index],
+            );
           },
           // shrinkWrap: true,
           // children: list.map((element) => Text(element)).toList(),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Results(available: list,)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Results(
+                          available: list,
+                        )));
           },
           child: Icon(
             Icons.fastfood,
@@ -48,7 +56,7 @@ class _BasketState extends State<Basket> {
 }
 
 class BasketCard extends StatefulWidget {
-  final String basketItem;
+  String basketItem;
 
   BasketCard({this.basketItem});
 
@@ -57,22 +65,35 @@ class BasketCard extends StatefulWidget {
 }
 
 class _BasketCardState extends State<BasketCard> {
+  Image basketItemImage;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Container(
-            color: Colors.white,
-            child: ListTile(
-              title: Text(widget.basketItem),
-              trailing: Icon(Icons.delete,),
+    basketItemImage = kImageMap[widget.basketItem];
+    return Card(
+      margin: EdgeInsets.symmetric(
+        vertical: 8.0,
+        horizontal: 24.0,
+      ),
+      elevation: 4.0,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(child: basketItemImage, backgroundColor: kBottomNavigationColor, radius: 24.0,),
+                SizedBox(width: 16.0,),
+                VerticalDivider(color: kPrimaryColor),
+                SizedBox(width: 16.0,),
+                Text(widget.basketItem,),
+              ],
             ),
           ),
         ),
-      ],
+      ),
     );
   }
 }

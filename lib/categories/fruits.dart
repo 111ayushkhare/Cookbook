@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
+import 'package:cookbook/colors.dart';
 
 class Fruits extends StatelessWidget {
   @override
@@ -73,9 +74,10 @@ class _ItemBoxState extends State<ItemBox> {
                   onTap: (){
                     setState(() {
                       isSelected = !isSelected;
+                      print(isSelected);
                       kCardColorF = isSelected ? kCardSelectedColorF : kCardUnselectedColorF;
                       kCardTextColorF = isSelected ? kCardSelectedTextColorF : kCardUnselectedTextColorF;
-                      if(isSelected) {
+                      if(isSelected && !list.contains(widget.itemImage)) {
                         list.add(widget.itemName);
                       } else {
                         list.remove(widget.itemName);

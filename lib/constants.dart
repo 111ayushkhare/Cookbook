@@ -1,27 +1,5 @@
 import 'package:flutter/material.dart';
 
-Color kPrimaryColor = Color(0xff283655);
-Color kHomeScreenBackgroundColor = Colors.white;
-Color kCardItemBackgroundColor = Color(0xffB2DBD5);
-
-Color kCardUnselectedColorV = Colors.white;
-Color kCardUnselectedTextColorV = Colors.black;
-Color kCardSelectedColorV = Color(0xff1E1F26);
-Color kCardSelectedTextColorV = Colors.white;
-
-Color kCardUnselectedColorF = Colors.white;
-Color kCardUnselectedTextColorF= Colors.black;
-Color kCardSelectedColorF = Color(0xff1E1F26);
-Color kCardSelectedTextColorF = Colors.white;
-
-Color kCardColorV = kCardUnselectedColorV;
-Color kCardTextColorV = kCardUnselectedTextColorV;
-
-Color kCardColorF = kCardUnselectedColorF;
-Color kCardTextColorF = kCardUnselectedTextColorF;
-
-Color kBottomNavigationColor = Color(0xffFFA577);
-
 List<BoxShadow> kShadowList = [
   BoxShadow(
     color: Colors.grey[300],
@@ -66,6 +44,11 @@ var kNonVegList = [
   {'name': 'Rabbit', 'iconPath' : 'images/non-veg/rabbit.png'},
   {'name': 'Pork', 'iconPath' : 'images/non-veg/pork.png'},
 ];
+
+Map<String, Image> kImageMap = {
+  'Paneer' : Image.asset('images/vegetables/paneer.png'),
+  'Rajma' : Image.asset('images/vegetables/rajma.png'),
+};
 
 Map<String, List<String>> mp = {
 

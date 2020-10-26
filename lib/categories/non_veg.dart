@@ -4,17 +4,17 @@ import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
 
-class Veggies extends StatelessWidget {
+class NonVeg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       color: kHomeScreenBackgroundColor,
       child: ListView.builder(
-        itemCount: kVegetablesList.length,
+        itemCount: kNonVegList.length,
         itemBuilder: (context, index) {
           return ItemBox(
-            itemName: kVegetablesList[index]['name'],
-            itemImage: kVegetablesList[index]['iconPath'],
+            itemName: kNonVegList[index]['name'],
+            itemImage: kNonVegList[index]['iconPath'],
           );
         },
       ),
@@ -74,7 +74,6 @@ class _ItemBoxState extends State<ItemBox> {
                 onTap: (){
                   setState(() {
                     isSelected = !isSelected;
-                    print(isSelected);
                     kCardColorV = isSelected ? kCardSelectedColorV : kCardUnselectedColorV;
                     kCardTextColorV = isSelected ? kCardSelectedTextColorV : kCardUnselectedTextColorV;
                     if(isSelected && !list.contains(widget.itemImage)) {
