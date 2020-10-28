@@ -21,10 +21,6 @@ class HomeScreen extends StatelessWidget {
           elevation: 8.0,
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            ),
-            IconButton(
               icon: Icon(Icons.more_vert),
               onPressed: () {},
             ),
@@ -39,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             tabs: [
               Text('VEGETABLES'),
               Text('FRUITS'),
-              Text('MISCELLANEOUS'),
+              Text('COMMON-MIX'),
               Text('NON-VEG'),
             ],
           ),

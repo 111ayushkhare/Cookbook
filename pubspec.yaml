@@ -61,11 +61,27 @@ flutter:
     - images/vegetables/cauliflower.png
     - images/vegetables/broccoli.png
     - images/vegetables/cabbage.png
-    - images/fruits/brinjal.png
-    - images/fruits/tomato.png
-    - images/fruits/papaya.png
+    - images/vegetables/brinjal.png
+    - images/vegetables/sweet_potato.png
+    - images/vegetables/beetroot.png
     - images/fruits/mango.png
     - images/fruits/banana.png
+    - images/fruits/papaya.png
+    - images/fruits/tomato.png
+    - images/fruits/strawberry.png
+    - images/fruits/carrot.png
+    - images/fruits/gooseberry.png
+    - images/fruits/pomegranate.png
+    - images/fruits/lime.png
+    - images/fruits/guava.png
+    - images/fruits/grape.png
+    - images/fruits/custard_apple.png
+    - images/fruits/orange.png
+    - images/fruits/watermelon.png
+    - images/fruits/apple.png
+    - images/fruits/pineapple.png
+    - images/fruits/mushroom.png
+    - images/non-veg/egg.png
     - images/non-veg/chicken.png
     - images/non-veg/beef.png
     - images/non-veg/fish.png

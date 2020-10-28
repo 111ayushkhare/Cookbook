@@ -22,8 +22,14 @@ class _BasketState extends State<Basket> {
         primaryColor: kPrimaryColor,
       ),
       home: Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
           title: Text('Basket'),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.reply), onPressed: () {
+              Navigator.pop(context);
+            }),
+          ],
         ),
         body: ListView.builder(
           itemCount: list.length,
@@ -32,10 +38,8 @@ class _BasketState extends State<Basket> {
               basketItem: list.elementAt(index),
             );
           },
-          // shrinkWrap: true,
-          // children: list.map((element) => Text(element)).toList(),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             Navigator.push(
                 context,
@@ -44,12 +48,11 @@ class _BasketState extends State<Basket> {
                           available: list,
                         )));
           },
-          child: Icon(
-            Icons.fastfood,
-            color: kPrimaryColor,
-          ),
+          icon: Icon(Icons.fastfood, color: kPrimaryColor,),
+          label: Text('Get Dishes', style: TextStyle(color: kPrimaryColor),),
           backgroundColor: kBottomNavigationColor,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
