@@ -9,21 +9,20 @@ List<BoxShadow> kShadowList = [
 ];
 
 var kVegetablesList = [
-  {'name': 'Paneer', 'iconPath' : 'images/vegetables/paneer.png'},
-  {'name': 'Rajma', 'iconPath' : 'images/vegetables/rajma.png'},
-  {'name': 'Chhole', 'iconPath' : 'images/vegetables/chhole.png'},
   {'name': 'Bhindi', 'iconPath' : 'images/vegetables/bhindi.png'},
+  {'name': 'Rajma', 'iconPath' : 'images/vegetables/rajma.png'},
   {'name': 'Karela', 'iconPath' : 'images/vegetables/karela.png'},
   {'name': 'Lauki', 'iconPath' : 'images/vegetables/lauki.png'},
+  {'name': 'Pepper', 'iconPath' : 'images/vegetables/pepper.png'},
+  {'name': 'Cabbage', 'iconPath' : 'images/vegetables/cabbage.png'},
+  {'name': 'Spinach', 'iconPath' : 'images/vegetables/spinach.png'},
+  {'name': 'Parwal', 'iconPath' : 'images/vegetables/parwal.png'},
   {'name': 'Pea (Matar)', 'iconPath' : 'images/vegetables/pea.png'},
   {'name': 'Potato', 'iconPath' : 'images/vegetables/potato.png'},
-  {'name': 'Pepper', 'iconPath' : 'images/vegetables/pepper.png'},
   {'name': 'Pumpkin', 'iconPath' : 'images/vegetables/pumpkin.png'},
-  {'name': 'Cabbage', 'iconPath' : 'images/vegetables/cabbage.png'},
   {'name': 'Broccoli', 'iconPath' : 'images/vegetables/broccoli.png'},
-  {'name': 'Parwal', 'iconPath' : 'images/vegetables/parwal.png'},
   {'name': 'Cauliflower', 'iconPath' : 'images/vegetables/cauliflower.png'},
-  {'name': 'Spinach', 'iconPath' : 'images/vegetables/spinach.png'},
+
 ];
 
 var kFruitsList = [
@@ -32,6 +31,11 @@ var kFruitsList = [
   {'name': 'Tomato', 'iconPath' : 'images/fruits/tomato.png'},
   {'name': 'Mango', 'iconPath' : 'images/fruits/mango.png'},
   {'name': 'Banana', 'iconPath' : 'images/fruits/banana.png'},
+];
+
+var kMixList = [
+  {'name': 'Paneer', 'iconPath' : 'images/vegetables/paneer.png'},
+  {'name': 'Chhole', 'iconPath' : 'images/vegetables/chhole.png'},
 ];
 
 var kNonVegList = [
@@ -52,7 +56,148 @@ Map<String, Image> kImageMap = {
 
 Map<String, List<String>> mp = {
 
-  // vegetables
+  /* Vegetables */
+  "Bhindi" : [
+    'Bhindi Masala',
+    'Kurkuri Bhindi | Okra Fry',
+    'Vendakkai Poriyal',
+    'Vendakkai Sambar',
+    'Bhindi Fry',
+    'Bharli Bhendi',
+    'Shahi Bhind',
+    'Bharwa Bhindi',
+    'Lahsuni Bhindi',
+    'Bhindi Do Pyaza',
+    'Aloo Bhindi',
+    'Besan Bhindi',
+    'Bhindi Nariyal Sabzi',
+    'Bhindi Ka Salan',
+    'Bhindi Rice',
+  ],
+  "Rajma" : [
+    'Rajma Curry',
+    'Kashmiri Rajma',
+    'Refried Beans',
+    'Rajma Pakodas',
+    'Rajma Kebab',
+    'Rajma Aur Kele Ke Kebab',
+    'Makhmali Rajma Kebab',
+    'Rajma Galouti Kebab',
+    'Rajma Aloo Cutlet',
+    'Oats and Rajma Cutlet',
+    'Chatpata Rajma Wrap',
+    'Grilled Rajma Masala Sandwich',
+  ],
+  "Karela" : [
+    'Sukhi Karela Sabzi',
+    'Onion and Karela Sabzi',
+    'Karela and Capsicum sabzi',
+    'Masala Karela',
+    'Stuffed Karela in Makhani Gravy',
+    'Masala Bharwan Karela',
+    'Karela Bhindi Masala',
+    'Karela Kadhi',
+    'Karega Mauthias',
+    'Karela Peel Kadhi',
+    'Crispy Karela',
+    'Karela Paratha',
+    'Karela Theplas',
+    'Karela Chips',
+    'Karela Tikkis',
+    'Malai Karela',
+    'Karela Cutlet',
+    'Karela Rice',
+  ],
+  "Lauki" : [
+    'Lauki Kofta Curry',
+    'Bharwa Lauki',
+    'Doodhi Theplas',
+    'Doodhi Muthia',
+    'Lauki ki Kheer',
+    'Doodhi Ka Halwa',
+    'Bottle Gourd, Carrot & Beetroot Halwa',
+    'Lauki ka Raita',
+    'Lauki Aur Pudine ka Raita',
+    'Sambhar',
+  ],
+  "Pepper" : [
+    'Capsicum curry',
+    'Capsicum fry',
+    'Aloo Capsicum',
+    'Stuffed Capsicum',
+    'Capsicum Salan',
+    'Pepper Panner',
+    'Capsicum Chutney',
+    'Red Capsicum Chutney',
+    'Peanut Capsicum Chutney',
+    'Capsicum Cheese Toast Sandwich',
+    'Capsicum Rice',
+  ],
+  "Cabbage" : [
+    'Patta Gobhi Matar',
+    'Patta Gobhi Chana Dal',
+    'Cabbage Paratha',
+    'Cabbage Vada',
+    'Cabbage Kootu',
+    'Cabbage Foogath',
+    'Cabbage Pakoda',
+    'Cabbage Chutney',
+    'Cabbage Poriyal',
+    'Cabbage Bhaji',
+    'Cabbage Coleslaw',
+    'Weeknight Cabbage Rolls',
+    'One-Pot Cabbage & Sausage Pasta',
+    'Unstuffed Cabbage Rolls Bowls',
+    'Veggie packed Cabbage Soup',
+    'Grilled Cabbage Wedges with Spicy Lime Dressing',
+    'Cabbage and Apple Slaw with Honey Lime Dressing',
+    'Shredded Cabbage & Sweet Potato Slaw',
+    'Roasted Cabbage Slaw with Hazelnuts & Lemon',
+    'Kohlrabi & Cabbage Salad with Maple Lemon Dressing',
+    'Apple Cabbage Salad with Brown Sugar Cider Vinaigrette',
+  ],
+  "Spinach" : [
+    'Palak Ki Sabzi',
+    'Sarson Ka Saag',
+    'Palak Soup',
+    'Hara Bhara Kabab',
+    'Aloo Palak',
+    'Easy Dal Palak (Creamy Lentils With Spinach)',
+    'Palak Saag',
+    'Palak Paratha',
+    'Aloo Palak Paratha',
+    'Palak Corn',
+    'Palak Pakoda',
+    'Palak Mushroom',
+    'Palak Khichdi',
+    'Palak Chole',
+    'One Pot Cheesy Spinach Corn',
+    'Paneer Palak Bhurji',
+    'Paneer Palak Roll',
+    'Palak Ka Raita',
+    'Methi Palak Saag Paneer',
+    'Palak Chaat',
+    'Corn Spinach Pulao',
+    'Methi Chaman',
+    'Palak Puri',
+    'Palak Kofta',
+  ],
+  "Parwal" : [
+    'Parwal Pyarelal',
+    'Parwal Ki Mithai',
+    'Parwal Fry',
+    'Parwal Deep Fry',
+    'Parwal Kalunga',
+    'Dry Stuffed Parwal',
+    'Parwal Korma',
+    'Dahi Parwal',
+    'Spicy Soyabean Parwal Gravy',
+    'Parwal ki Bharwa',
+    'Gravy Alu Parwal',
+  ],
+
+  /* Mix-Item */
+
   "Paneer" : [
     'Shahi Paneer',
     'Palak Paneer',
@@ -107,86 +252,11 @@ Map<String, List<String>> mp = {
     'Paneer Biryani',
     'Paneer Pulao',
   ],
-  "Rajma" : [
-    'Rajma Curry',
-    'Kashmiri Rajma',
-    'Refried Beans',
-    'Rajma Pakodas',
-    'Rajma Kebab',
-    'Rajma Aur Kele Ke Kebab',
-    'Makhmali Rajma Kebab',
-    'Rajma Galouti Kebab',
-    'Rajma Aloo Cutlet',
-    'Oats and Rajma Cutlet',
-    'Chatpata Rajma Wrap',
-    'Grilled Rajma Masala Sandwich',
-  ],
-  "Bhindi" : [
-    'Bhindi Masala',
-    'Kurkuri Bhindi | Okra Fry',
-    'Vendakkai Poriyal',
-    'Vendakkai Sambar',
-    'Bhindi Fry',
-    'Bharli Bhendi',
-    'Shahi Bhind',
-    'Bharwa Bhindi',
-    'Lahsuni Bhindi',
-    'Bhindi Do Pyaza',
-    'Aloo Bhindi',
-    'Besan Bhindi',
-    'Bhindi Nariyal Sabzi',
-    'Bhindi Ka Salan',
-    'Bhindi Rice',
-  ],
-  "Karela" : [
-    'Sukhi Karela Sabzi',
-    'Onion and Karela Sabzi',
-    'Karela and Capsicum sabzi',
-    'Masala Karela',
-    'Stuffed Karela in Makhani Gravy',
-    'Masala Bharwan Karela',
-    'Karela Bhindi Masala',
-    'Karela Kadhi',
-    'Karega Mauthias',
-    'Karela Peel Kadhi',
-    'Crispy Karela',
-    'Karela Paratha',
-    'Karela Theplas',
-    'Karela Chips',
-    'Karela Tikkis',
-    'Malai Karela',
-    'Karela Cutlet',
-    'Karela Rice',
-  ],
-  "Lauki" : [
-    'Lauki Kofta Curry',
-    'Bharwa Lauki',
-    'Doodhi Theplas',
-    'Doodhi Muthia',
-    'Lauki ki Kheer',
-    'Doodhi Ka Halwa',
-    'Bottle Gourd, Carrot & Beetroot Halwa',
-    'Lauki ka Raita',
-    'Lauki Aur Pudine ka Raita',
-    'Sambhar',
-  ],
-  "Pepper" : [
-    'Capsicum curry',
-    'Capsicum fry',
-    'Aloo Capsicum',
-    'Stuffed Capsicum',
-    'Capsicum Salan'
-    'Pepper Panner',
-    'Capsicum Chutney',
-    'Red Capsicum Chutney',
-    'Peanut Capsicum Chutney'
-    'Capsicum Cheese Toast Sandwich',
-    'Capsicum Rice',
-  ],
+
   "Chhole" : ['Chhola', 'Chhola Paneer'],
   "Salad" : ['fruit salad', 'papad'],
 
-  // non-veg
+  /* Non-veg */
 
   "Chicken" : [
     'Amritsari chicken masala',
@@ -202,7 +272,6 @@ Map<String, List<String>> mp = {
     'Roasted chicken masala',
     'Dahi chicken',
   ],
-
   "Fish" : [
     'Masala fried pomfret',
     'Fish curry',
@@ -214,7 +283,6 @@ Map<String, List<String>> mp = {
     'Chettinad fish fry',
     'Fish duglere',
   ],
-
   "Meat" : [
     'Laziz lamb handi',
     'Galouti kebab',
@@ -230,14 +298,12 @@ Map<String, List<String>> mp = {
     'Mutton curry',
     'Kosha mangsho',
   ],
-
   "Pigeon" : [
     'Roasted wood pigeon',
     'Pigeon pies',
     'Pigeon & hedgerow salad',
     'Pigeon & beetroot salad',
   ],
-
   "Beef" : [
     'Indian fried beef',
     'Beef curry',
@@ -246,7 +312,6 @@ Map<String, List<String>> mp = {
     'Indian spiced Beef stew',
     'Indian spiced Beef Kababs',
   ],
-
   "Crab" : [
     'classic crab boil',
     'avocado crab boats',
@@ -259,7 +324,6 @@ Map<String, List<String>> mp = {
     'crab crescents',
     'curried crab spread',
   ],
-
   "Rabbit" : [
     'Stuffed Rabbit Recipes',
     'Rabbit in Mustard Sauce',
@@ -268,7 +332,6 @@ Map<String, List<String>> mp = {
     'Rabbit Sausage',
     'Slow Roasted Rabbit',
   ],
-
   "Pork" : [
     'roast pork belly',
     'thai pork salad',

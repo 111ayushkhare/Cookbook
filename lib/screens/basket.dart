@@ -3,7 +3,7 @@ import 'package:cookbook/screens/results.dart';
 import 'package:flutter/material.dart';
 import 'package:cookbook/colors.dart';
 
-List<String> list = List();
+Set<String> list = Set<String>();
 
 class Basket extends StatefulWidget {
   String itemName;
@@ -29,7 +29,7 @@ class _BasketState extends State<Basket> {
           itemCount: list.length,
           itemBuilder: (context, index) {
             return BasketCard(
-              basketItem: list[index],
+              basketItem: list.elementAt(index),
             );
           },
           // shrinkWrap: true,
@@ -84,7 +84,7 @@ class _BasketCardState extends State<BasketCard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                CircleAvatar(child: basketItemImage, backgroundColor: kBottomNavigationColor, radius: 24.0,),
+                CircleAvatar(child: basketItemImage, backgroundColor: kCardItemBackgroundColor, radius: 24.0,),
                 SizedBox(width: 16.0,),
                 VerticalDivider(color: kPrimaryColor),
                 SizedBox(width: 16.0,),

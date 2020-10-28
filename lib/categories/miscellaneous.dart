@@ -4,26 +4,26 @@ import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
 
-class Fruits extends StatefulWidget {
+class MixItems extends StatefulWidget {
   @override
-  _FruitsState createState() => _FruitsState();
+  _MixItemsState createState() => _MixItemsState();
 }
 
-class _FruitsState extends State<Fruits> {
+class _MixItemsState extends State<MixItems> {
   @override
   Widget build(BuildContext context) {
     return Container(
       color: kHomeScreenBackgroundColor,
       child: ListView.builder(
-        itemCount: kFruitsList.length,
+        itemCount: kMixList.length,
         itemBuilder: (context, index) => buildCategory(index),
       ),
     );
   }
 
   Widget buildCategory(int index) {
-    String itemName = kFruitsList[index]['name'];
-    String itemImage = kFruitsList[index]['iconPath'];
+    String itemName = kMixList[index]['name'];
+    String itemImage = kMixList[index]['iconPath'];
 
     return Container(
       height: 192.0,

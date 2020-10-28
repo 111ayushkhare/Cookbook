@@ -4,7 +4,7 @@ import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
 
 class Results extends StatefulWidget {
-  List<String> available;
+  Set<String> available;
 
   Results({this.available});
 
@@ -20,10 +20,10 @@ class _ResultsState extends State<Results> {
     setState(() {
       print(widget.available);
       for (int i = 0; i < widget.available.length; i++) {
-        if (mp.containsKey(widget.available[i])) {
+        if (mp.containsKey(widget.available.elementAt(i))) {
           print(mp[widget.available]);
 
-          mp[widget.available[i]].forEach((element) {
+          mp[widget.available.elementAt(i)].forEach((element) {
             print(element);
             if (!resultDishes.contains(element)) {
               resultDishes.add(element);
@@ -34,8 +34,6 @@ class _ResultsState extends State<Results> {
     });
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,9 @@ class _ResultsState extends State<Results> {
         body: ListView.builder(
           itemCount: resultDishes.length,
           itemBuilder: (context, index) {
-            return ResultTile(dishName: resultDishes[index],);
+            return ResultCard(
+              dishName: resultDishes[index],
+            );
           },
           // shrinkWrap: true,
           // children: resultDishes.map((e) => Text(e)).toList(),
@@ -60,32 +60,59 @@ class _ResultsState extends State<Results> {
   }
 }
 
-class ResultTile extends StatefulWidget {
-  final String dishName;
+class ResultCard extends StatefulWidget {
+  String dishName;
 
-  ResultTile({this.dishName});
+  ResultCard({this.dishName});
 
   @override
-  _ResultTileState createState() => _ResultTileState();
+  _ResultCardState createState() => _ResultCardState();
 }
 
-class _ResultTileState extends State<ResultTile> {
+class _ResultCardState extends State<ResultCard> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Container(
-            color: Colors.blue[50],
-            child: ListTile(
-              leading: Icon(Icons.favorite_border),
-              title: Text(widget.dishName),
-              trailing: Icon(Icons.arrow_forward),
+    return Card(
+      elevation: 4.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
+              height: 144.0,
+              child: Image(
+                width: 200.0,
+                image: NetworkImage('https://www.indianhealthyrecipes.com/wp-content/uploads/2016/03/kadai-paneer-1.jpg'),
+              ),
             ),
           ),
-        ),
-      ],
+          Text(
+            widget.dishName,
+            textAlign: TextAlign.left,
+          ),
+          Text('Milk Product'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.favorite_border),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.arrow_downward,
+                  color: kPrimaryColor,
+                ),
+                onPressed: () {},
+                color: kHomeScreenBackgroundColor,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,9 +1,8 @@
+import 'package:cookbook/categories/miscellaneous.dart';
 import 'package:flutter/material.dart';
 import 'package:cookbook/categories/vegetables.dart';
 import 'package:cookbook/categories/fruits.dart';
-import 'package:cookbook/categories/beverages.dart';
 import 'package:cookbook/categories/non_veg.dart';
-import 'package:cookbook/constants.dart';
 import 'package:cookbook/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,10 +21,12 @@ class HomeScreen extends StatelessWidget {
           elevation: 8.0,
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () {
-                Navigator.pushNamed(context, 'BasketScreen');
-              },
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.more_vert),
+              onPressed: () {},
             ),
           ],
           bottom: TabBar(
@@ -33,22 +34,13 @@ class HomeScreen extends StatelessWidget {
             indicatorColor: Colors.white,
             labelPadding: EdgeInsets.all(16.0),
             labelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24.0,
+              fontSize: 16.0,
             ),
             tabs: [
-              Text(
-                'Vegetables',
-              ),
-              Text(
-                'Fruits',
-              ),
-              Text(
-                'Beverages',
-              ),
-              Text(
-                'Non-Veg',
-              ),
+              Text('VEGETABLES'),
+              Text('FRUITS'),
+              Text('MISCELLANEOUS'),
+              Text('NON-VEG'),
             ],
           ),
         ),
@@ -56,37 +48,32 @@ class HomeScreen extends StatelessWidget {
           children: [
             Veggies(),
             Fruits(),
-            Bevarages(),
+            MixItems(),
             NonVeg(),
           ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text(
-                'Home',
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera_alt),
-              title: Text(
-                'Capture',
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              title: Text('Favorite'),
-            ),
-          ],
-          backgroundColor: kBottomNavigationColor,
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: kCardItemBackgroundColor,
           child: Icon(Icons.shopping_cart, color: kPrimaryColor,),
           onPressed: () {
-            Navigator.pushNamed(context, 'Basket');
+            Navigator.pushNamed(context, 'BasketScreen');
           },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(width: MediaQuery.of(context).size.width / 8,),
+              IconButton(icon: Icon(Icons.home), onPressed: () {}),
+              SizedBox(width: MediaQuery.of(context).size.width / 8,),
+              IconButton(icon: Icon(Icons.add_a_photo), onPressed: () {}),
+              SizedBox(width: MediaQuery.of(context).size.width / 8,),
+              IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
+            ],
+          ),
+          shape: CircularNotchedRectangle(),
+          color: kBottomNavigationColor,
         ),
       ),
     );
