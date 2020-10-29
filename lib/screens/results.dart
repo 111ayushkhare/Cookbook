@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
+import 'package:flutter/rendering.dart';
 
 class Results extends StatefulWidget {
   Set<String> available;
@@ -42,18 +44,33 @@ class _ResultsState extends State<Results> {
         primaryColor: kPrimaryColor,
       ),
       home: Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
-          title: Text('Dishes You Can COOK'),
+          title: Text('Dishes You Can COOK',),
+          centerTitle: true,
+          elevation: 8.0,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.reply),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
         ),
-        body: ListView.builder(
-          itemCount: resultDishes.length,
-          itemBuilder: (context, index) {
-            return ResultCard(
-              dishName: resultDishes[index],
-            );
-          },
-          // shrinkWrap: true,
-          // children: resultDishes.map((e) => Text(e)).toList(),
+        body: Container(
+          color: Color(0xffebfbff),
+          //margin: EdgeInsets.all(8.0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: 0.70,
+            children: List.generate(
+              resultDishes.length,
+              (index) => ResultCard(
+                dishName: resultDishes[index],
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -72,47 +89,109 @@ class ResultCard extends StatefulWidget {
 class _ResultCardState extends State<ResultCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4.0,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              margin: EdgeInsets.all(8.0),
-              padding: EdgeInsets.all(8.0),
-              height: 144.0,
-              child: Image(
-                width: 200.0,
-                image: NetworkImage('https://www.indianhealthyrecipes.com/wp-content/uploads/2016/03/kadai-paneer-1.jpg'),
-              ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(color: kPrimaryColor, width: 1.0),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(32.0),
+              bottomRight: Radius.circular(32.0),
             ),
           ),
-          Text(
-            widget.dishName,
-            textAlign: TextAlign.left,
-          ),
-          Text('Milk Product'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.favorite_border),
-                onPressed: () {},
+          child: Container(
+            //margin: EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              color: kHomeScreenBackgroundColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(32.0),
+                bottomRight: Radius.circular(32.0),
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_downward,
-                  color: kPrimaryColor,
+            ),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.blue,
+                    ),
+                    alignment: Alignment.center,
+                    child: Image.asset('images/vegetables/bhindi.png'),
+                  ),
+                  flex: 5,
                 ),
-                onPressed: () {},
-                color: kHomeScreenBackgroundColor,
-              ),
-            ],
+                Expanded(
+                  flex: 3,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                          left: 8.0,
+                          bottom: 4.0,
+                          top: 32.0,
+                        ),
+                        color: kPrimaryColor,
+                        width: 2.0,
+                      ),
+                      SizedBox(
+                        width: 8.0,
+                      ),
+                      Flexible(
+                        child: Container(
+                          alignment: Alignment.bottomLeft,
+                          margin: EdgeInsets.only(bottom: 4.0),
+                          child: Text(widget.dishName.toUpperCase()),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.favorite_border),
+                        onPressed: () {},
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 32.0,
+                          ),
+                          decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(32.0),
+                                bottomRight: Radius.circular(32.0),
+                              )),
+                          child: Text(
+                            'Get Recipe',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ],
+        ),
       ),
     );
   }
 }
+
+// CircleAvatar(
+// radius: 56.0,
+// child: Image.asset('images/fruits/mango.png'),
+// ),
