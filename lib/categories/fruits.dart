@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Fruits extends StatefulWidget {
   @override
@@ -14,9 +15,14 @@ class _FruitsState extends State<Fruits> {
   Widget build(BuildContext context) {
     return Container(
       color: kHomeScreenBackgroundColor,
-      child: ListView.builder(
-        itemCount: kFruitsList.length,
-        itemBuilder: (context, index) => buildCategory(index),
+      child: GridView.count(
+        childAspectRatio: 2.0,
+        crossAxisCount:
+        MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
+        children: List.generate(
+          kFruitsList.length,
+              (index) => buildCategory(index),
+        ),
       ),
     );
   }
@@ -59,7 +65,7 @@ class _FruitsState extends State<Fruits> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.only(top: 72, bottom: 24.0),
+                margin: EdgeInsets.only(top: 72, bottom: 16.0),
                 decoration: BoxDecoration(
                   color: list.contains(itemName) ? kCardSelectedColorV : kCardUnselectedColorV,
                   borderRadius: BorderRadius.only(
@@ -72,10 +78,14 @@ class _FruitsState extends State<Fruits> {
                   padding: const EdgeInsets.all(32.0),
                   child: Text(
                     itemName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      color: list.contains(itemName) ? kCardSelectedTextColorV : kCardUnselectedTextColorV,
+                    style: GoogleFonts.giveYouGlory(
+                      textStyle: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: list.contains(itemName)
+                            ? kCardSelectedTextColorV
+                            : kCardUnselectedTextColorV,
+                      ),
                     ),
                   ),
                 ),

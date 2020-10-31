@@ -89,7 +89,7 @@ Map<String, Image> kImageMap = {
   'Banana' : Image.asset('images/fruits/banana.png'),
   'Apple' : Image.asset('images/fruits/apple.png'),
   'Papaya' : Image.asset('images/fruits/papaya.png'),
-  'Tomato' : Image.asset('images/fruits/Tomato.png'),
+  'Tomato' : Image.asset('images/fruits/tomato.png'),
   'Strawberry' : Image.asset('images/fruits/strawberry.png'),
   'Carrot' : Image.asset('images/fruits/carrot.png'),
   'Gooseberry(Aawla)' : Image.asset('images/fruits/gooseberry.png'),

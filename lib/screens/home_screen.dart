@@ -4,6 +4,8 @@ import 'package:cookbook/categories/vegetables.dart';
 import 'package:cookbook/categories/fruits.dart';
 import 'package:cookbook/categories/non_veg.dart';
 import 'package:cookbook/colors.dart';
+import 'package:cookbook/screens/drawer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -11,12 +13,13 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        drawer: Drawer(),
+        drawer: DrawerScreen(),
         appBar: AppBar(
           title: Text(
             'CookBook',
-            style: TextStyle(fontSize: 24.0),
+            style: GoogleFonts.handlee(textStyle: TextStyle(fontSize: 32.0), fontWeight: FontWeight.w500),
           ),
+          centerTitle: true,
           toolbarHeight: 128.0,
           elevation: 8.0,
           actions: <Widget>[
@@ -33,10 +36,10 @@ class HomeScreen extends StatelessWidget {
               fontSize: 16.0,
             ),
             tabs: [
-              Text('VEGETABLES'),
-              Text('FRUITS'),
-              Text('COMMON-MIX'),
-              Text('NON-VEG'),
+              Text('VEGETABLES', style: GoogleFonts.handlee(textStyle: TextStyle()),),
+              Text('FRUITS', style: GoogleFonts.handlee(textStyle: TextStyle()),),
+              Text('COMMON-MIX', style: GoogleFonts.handlee(textStyle: TextStyle()),),
+              Text('NON-VEG', style: GoogleFonts.handlee(textStyle: TextStyle()),),
             ],
           ),
         ),
@@ -55,17 +58,13 @@ class HomeScreen extends StatelessWidget {
             Navigator.pushNamed(context, 'BasketScreen');
           },
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              SizedBox(width: MediaQuery.of(context).size.width / 8,),
-              IconButton(icon: Icon(Icons.home), onPressed: () {}),
-              SizedBox(width: MediaQuery.of(context).size.width / 8,),
+              IconButton(icon: Icon(Icons.favorite), onPressed: () {Navigator.pushNamed(context, 'FavoriteDishesScreen');}),
               IconButton(icon: Icon(Icons.add_a_photo), onPressed: () {}),
-              SizedBox(width: MediaQuery.of(context).size.width / 8,),
-              IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
             ],
           ),
           shape: CircularNotchedRectangle(),
@@ -75,3 +74,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Veggies extends StatefulWidget {
   @override
@@ -14,9 +15,14 @@ class _VeggiesState extends State<Veggies> {
   Widget build(BuildContext context) {
     return Container(
       color: kHomeScreenBackgroundColor,
-      child: ListView.builder(
-        itemCount: kVegetablesList.length,
-        itemBuilder: (context, index) => buildCategory(index),
+      child: GridView.count(
+        childAspectRatio: 2.0,
+        crossAxisCount:
+            MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
+        children: List.generate(
+          kVegetablesList.length,
+          (index) => buildCategory(index),
+        ),
       ),
     );
   }
@@ -51,7 +57,7 @@ class _VeggiesState extends State<Veggies> {
             child: GestureDetector(
               onTap: () {
                 setState(() {
-                  if(list.contains(itemName)) {
+                  if (list.contains(itemName)) {
                     list.remove(itemName);
                   } else {
                     list.add(itemName);
@@ -59,9 +65,11 @@ class _VeggiesState extends State<Veggies> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.only(top: 72, bottom: 24.0),
+                margin: EdgeInsets.only(top: 72, bottom: 16.0),
                 decoration: BoxDecoration(
-                  color: list.contains(itemName) ? kCardSelectedColorV : kCardUnselectedColorV,
+                  color: list.contains(itemName)
+                      ? kCardSelectedColorV
+                      : kCardUnselectedColorV,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(24.0),
                     bottomRight: Radius.circular(24.0),
@@ -72,10 +80,14 @@ class _VeggiesState extends State<Veggies> {
                   padding: const EdgeInsets.all(32.0),
                   child: Text(
                     itemName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      color: list.contains(itemName) ? kCardSelectedTextColorV : kCardUnselectedTextColorV,
+                    style: GoogleFonts.giveYouGlory(
+                      textStyle: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: list.contains(itemName)
+                            ? kCardSelectedTextColorV
+                            : kCardUnselectedTextColorV,
+                      ),
                     ),
                   ),
                 ),
@@ -87,3 +99,8 @@ class _VeggiesState extends State<Veggies> {
     );
   }
 }
+
+// ListView.builder(
+// itemCount: kVegetablesList.length,
+// itemBuilder: (context, index) => buildCategory(index),
+// ),
