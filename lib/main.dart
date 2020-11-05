@@ -1,14 +1,14 @@
-import 'package:cookbook/screens/about_app.dart';
+import 'package:cookbook/screens/drawer/about_app.dart';
 import 'package:cookbook/screens/basket.dart';
 import 'package:cookbook/screens/home_screen.dart';
 import 'package:cookbook/screens/results.dart';
 import 'package:flutter/material.dart';
-import 'package:cookbook/colors.dart';
-import 'package:cookbook/screens/settings.dart';
-import 'package:cookbook/screens/favorite_dishes.dart';
-import 'package:cookbook/screens/about_developers.dart';
-import 'package:cookbook/screens/profile.dart';
-import 'package:cookbook/screens/freq_items.dart';
+import 'package:cookbook/constants/colors.dart';
+import 'package:cookbook/screens/drawer/settings.dart';
+import 'package:cookbook/screens/drawer/favorite_dishes.dart';
+import 'package:cookbook/screens/drawer/about_developers.dart';
+import 'package:cookbook/screens/drawer/profile.dart';
+import 'package:cookbook/screens/drawer/freq_items.dart';
 
 void main() => runApp(MyApp());
 

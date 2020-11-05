@@ -1,4 +1,5 @@
-import 'package:cookbook/colors.dart';
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -61,8 +62,11 @@ class FavouriteTile extends StatefulWidget {
 }
 
 class _FavouriteTileState extends State<FavouriteTile> {
+  Image favDishImage;
+
   @override
   Widget build(BuildContext context) {
+    favDishImage = kDishImageMap[widget.favdish];
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
@@ -79,7 +83,7 @@ class _FavouriteTileState extends State<FavouriteTile> {
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
                     alignment: Alignment.center,
-                    color: Color(0xffdcf5f5),
+                    child: favDishImage,
                   ),
                 ),
               ),
@@ -104,7 +108,11 @@ class _FavouriteTileState extends State<FavouriteTile> {
                   icon: Icon(
                     Icons.delete,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      favoriteDishes.remove(widget.favdish);
+                    });
+                  },
                 ),
               ),
             ],

@@ -1,8 +1,8 @@
-import 'package:cookbook/screens/favorite_dishes.dart';
+import 'package:cookbook/screens/drawer/favorite_dishes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cookbook/constants.dart';
-import 'package:cookbook/colors.dart';
+import 'package:cookbook/constants/colors.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,7 +48,9 @@ class _ResultsState extends State<Results> {
         appBar: AppBar(
           title: Text(
             'Dishes You Can COOK',
-            style: GoogleFonts.handlee(textStyle: TextStyle(fontWeight: FontWeight.w500), fontSize: 24.0),
+            style: GoogleFonts.handlee(
+                textStyle: TextStyle(fontWeight: FontWeight.w500),
+                fontSize: 24.0),
           ),
           centerTitle: true,
           elevation: 8.0,
@@ -73,7 +75,7 @@ class _ResultsState extends State<Results> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: Icon(Icons.keyboard_backspace),
                   onPressed: () {
                     Navigator.pop(context);
                   }),
@@ -107,8 +109,11 @@ class ResultCard extends StatefulWidget {
 }
 
 class _ResultCardState extends State<ResultCard> {
+  Image dishImage;
+
   @override
   Widget build(BuildContext context) {
+    dishImage = kDishImageMap[widget.dishName];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
       child: Card(
@@ -127,6 +132,7 @@ class _ResultCardState extends State<ResultCard> {
                 flex: 2,
                 child: Container(
                   color: Color(0xffdcf5f5),
+                  child: dishImage,
                   alignment: Alignment.center,
                 ),
               ),
@@ -144,7 +150,10 @@ class _ResultCardState extends State<ResultCard> {
                             child: Text(
                               widget.dishName,
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.satisfy(textStyle: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+                              style: GoogleFonts.satisfy(
+                                  textStyle: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold)),
                             ),
                             alignment: Alignment.center,
                           ),
@@ -168,10 +177,15 @@ class _ResultCardState extends State<ResultCard> {
                                     BorderRadius.all(Radius.circular(48.0)),
                               ),
                               child: IconButton(
-                                icon: Icon(
-                                  Icons.favorite_border,
-                                  color: Colors.red,
-                                ),
+                                icon: favoriteDishes.contains(widget.dishName)
+                                    ? Icon(
+                                        Icons.favorite,
+                                        color: Colors.red,
+                                      )
+                                    : Icon(
+                                        Icons.favorite_border,
+                                        color: kPrimaryColor,
+                                      ),
                                 onPressed: () {
                                   setState(() {
                                     if (favoriteDishes
@@ -190,7 +204,9 @@ class _ResultCardState extends State<ResultCard> {
                                     bottomRight: Radius.circular(16.0),
                                     topLeft: Radius.circular(16.0)),
                               ),
-                              child: Text('Get Recipe', style: GoogleFonts.josefinSlab(textStyle: TextStyle(fontSize: 16.0))),
+                              child: Text('Get Recipe',
+                                  style: GoogleFonts.josefinSlab(
+                                      textStyle: TextStyle(fontSize: 16.0))),
                               elevation: 4.0,
                               textColor: kHomeScreenBackgroundColor,
                               color: kPrimaryColor,
@@ -210,116 +226,3 @@ class _ResultCardState extends State<ResultCard> {
     );
   }
 }
-
-// CircleAvatar(
-// radius: 56.0,
-// child: Image.asset('images/fruits/mango.png'),
-// ),
-
-// SafeArea(
-// child: Padding(
-// padding: const EdgeInsets.all(8.0),
-// child: Card(
-// elevation: 4.0,
-// shape: RoundedRectangleBorder(
-// //side: BorderSide(color: kPrimaryColor, width: 1.0),
-// borderRadius: BorderRadius.only(
-// topLeft: Radius.circular(32.0),
-// bottomRight: Radius.circular(32.0),
-// ),
-// ),
-// child: Container(
-// //margin: EdgeInsets.all(8.0),
-// decoration: BoxDecoration(
-// color: kHomeScreenBackgroundColor,
-// borderRadius: BorderRadius.only(
-// topLeft: Radius.circular(32.0),
-// bottomRight: Radius.circular(32.0),
-// ),
-// ),
-// child: Column(
-// children: <Widget>[
-// Expanded(
-// child: Container(
-// margin: EdgeInsets.all(8.0),
-// decoration: BoxDecoration(
-// shape: BoxShape.circle,
-// color: Colors.cyanAccent,
-// ),
-// alignment: Alignment.center,
-// child: Image.asset('images/vegetables/bhindi.png'),
-// ),
-// flex: 5,
-// ),
-// Expanded(
-// flex: 3,
-// child: Row(
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// Container(
-// margin: EdgeInsets.only(
-// left: 8.0,
-// bottom: 4.0,
-// top: 32.0,
-// ),
-// color: kPrimaryColor,
-// width: 2.0,
-// ),
-// SizedBox(
-// width: 8.0,
-// ),
-// Flexible(
-// child: Container(
-// alignment: Alignment.bottomLeft,
-// margin: EdgeInsets.only(bottom: 4.0),
-// child: Text(widget.dishName.toUpperCase()),
-// ),
-// ),
-// ],
-// ),
-// ),
-// Expanded(
-// flex: 2,
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.spaceAround,
-// children: <Widget>[
-// IconButton(
-// icon: Icon(Icons.favorite_border, color: Colors.red,),
-// onPressed: () {
-// setState(() {
-// if (favoriteDishes.contains(widget.dishName)) {
-// favoriteDishes.remove(widget.dishName);
-// } else {
-// favoriteDishes.add(widget.dishName);
-// }
-// });
-// },
-// ),
-// GestureDetector(
-// onTap: () {},
-// child: Container(
-// alignment: Alignment.center,
-// padding: EdgeInsets.symmetric(
-// horizontal: 32.0,
-// ),
-// decoration: BoxDecoration(
-// color: kPrimaryColor,
-// borderRadius: BorderRadius.only(
-// topLeft: Radius.circular(32.0),
-// bottomRight: Radius.circular(32.0),
-// )),
-// child: Text(
-// 'Get Recipe',
-// style: TextStyle(color: Colors.white),
-// ),
-// ),
-// ),
-// ],
-// ),
-// ),
-// ],
-// ),
-// ),
-// ),
-// ),
-// )

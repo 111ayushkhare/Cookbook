@@ -1,7 +1,7 @@
 import 'package:cookbook/constants.dart';
 import 'package:cookbook/screens/results.dart';
 import 'package:flutter/material.dart';
-import 'package:cookbook/colors.dart';
+import 'package:cookbook/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Set<String> list = Set<String>();
@@ -96,7 +96,10 @@ class _BasketCardState extends State<BasketCard> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        elevation: 4.0,
+        elevation: 8.0,
+        shape: BeveledRectangleBorder(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0)),
+        ),
         margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         child: Container(
           child: Column(
@@ -137,7 +140,11 @@ class _BasketCardState extends State<BasketCard> {
                           icon: Icon(
                             Icons.delete,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              list.remove(widget.basketItem);
+                            });
+                          },
                         ),
                       ),
                     ),

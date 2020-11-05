@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cookbook/categories/vegetables.dart';
 import 'package:cookbook/categories/fruits.dart';
 import 'package:cookbook/categories/non_veg.dart';
-import 'package:cookbook/colors.dart';
+import 'package:cookbook/constants/colors.dart';
 import 'package:cookbook/screens/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
