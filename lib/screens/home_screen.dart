@@ -1,11 +1,13 @@
-import 'package:cookbook/categories/miscellaneous.dart';
 import 'package:flutter/material.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/categories/miscellaneous.dart';
 import 'package:cookbook/categories/vegetables.dart';
 import 'package:cookbook/categories/fruits.dart';
 import 'package:cookbook/categories/non_veg.dart';
-import 'package:cookbook/constants/colors.dart';
+import 'package:cookbook/res/colors.dart';
 import 'package:cookbook/screens/drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -17,17 +19,13 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'CookBook',
-            style: GoogleFonts.handlee(textStyle: TextStyle(fontSize: 32.0), fontWeight: FontWeight.w500),
+            style: GoogleFonts.handlee(
+                textStyle: TextStyle(fontSize: 32.0),
+                fontWeight: FontWeight.w500),
           ),
           centerTitle: true,
           toolbarHeight: 128.0,
           elevation: 8.0,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.more_vert),
-              onPressed: () {},
-            ),
-          ],
           bottom: TabBar(
             isScrollable: true,
             indicatorColor: Colors.white,
@@ -36,10 +34,22 @@ class HomeScreen extends StatelessWidget {
               fontSize: 16.0,
             ),
             tabs: [
-              Text('VEGETABLES', style: GoogleFonts.handlee(textStyle: TextStyle()),),
-              Text('FRUITS', style: GoogleFonts.handlee(textStyle: TextStyle()),),
-              Text('COMMON-MIX', style: GoogleFonts.handlee(textStyle: TextStyle()),),
-              Text('NON-VEG', style: GoogleFonts.handlee(textStyle: TextStyle()),),
+              Text(
+                'VEGETABLES',
+                style: GoogleFonts.handlee(textStyle: TextStyle()),
+              ),
+              Text(
+                'FRUITS',
+                style: GoogleFonts.handlee(textStyle: TextStyle()),
+              ),
+              Text(
+                'COMMON-MIX',
+                style: GoogleFonts.handlee(textStyle: TextStyle()),
+              ),
+              Text(
+                'NON-VEG',
+                style: GoogleFonts.handlee(textStyle: TextStyle()),
+              ),
             ],
           ),
         ),
@@ -53,7 +63,10 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: kCardItemBackgroundColor,
-          child: Icon(Icons.shopping_cart, color: kPrimaryColor,),
+          child: Icon(
+            Icons.shopping_cart,
+            color: kPrimaryColor,
+          ),
           onPressed: () {
             Navigator.pushNamed(context, 'BasketScreen');
           },
@@ -63,7 +76,11 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              IconButton(icon: Icon(Icons.favorite), onPressed: () {Navigator.pushNamed(context, 'FavoriteDishesScreen');}),
+              IconButton(
+                  icon: Icon(Icons.favorite),
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'FavoriteDishesScreen');
+                  }),
               IconButton(icon: Icon(Icons.add_a_photo), onPressed: () {}),
             ],
           ),
@@ -74,4 +91,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

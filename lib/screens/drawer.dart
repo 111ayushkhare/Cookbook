@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:cookbook/constants/colors.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import 'package:cookbook/res/colors.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({
@@ -48,7 +51,7 @@ class DrawerScreen extends StatelessWidget {
           // Body
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'ProfileScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -65,7 +68,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'FreqItemsScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -99,7 +102,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'SettingsScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -121,7 +124,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'AboutAppScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -138,7 +141,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'AboutDevelopersScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -160,7 +163,7 @@ class DrawerScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, 'AboutDevelopersScreen');
+              showToast();
             },
             child: ListTile(
               title: Text(
@@ -178,5 +181,16 @@ class DrawerScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void showToast() {
+    Fluttertoast.showToast(
+        msg: "Page not designed yet !",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM_LEFT,
+        timeInSecForIosWeb: 1,
+        backgroundColor: kPrimaryColor,
+        textColor: kHomeScreenBackgroundColor,
+        fontSize: 16.0);
   }
 }

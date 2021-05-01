@@ -1,10 +1,12 @@
-import 'package:cookbook/screens/drawer/favorite_dishes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cookbook/constants.dart';
-import 'package:cookbook/constants/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/res/colors.dart';
+import 'package:cookbook/screens/drawer/favorite_dishes.dart';
 
 class Results extends StatefulWidget {
   Set<String> available;

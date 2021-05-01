@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:cookbook/constants.dart';
-import 'package:cookbook/screens/basket.dart';
-import 'package:cookbook/constants/colors.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/res/colors.dart';
+import 'package:cookbook/screens/basket.dart';
 
 class Veggies extends StatefulWidget {
   @override

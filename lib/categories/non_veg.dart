@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:cookbook/constants.dart';
-import 'package:cookbook/screens/basket.dart';
-import 'package:cookbook/constants/colors.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/res/colors.dart';
+
+import 'package:cookbook/screens/basket.dart';
 
 class NonVeg extends StatefulWidget {
   @override
@@ -18,10 +21,10 @@ class _NonVegState extends State<NonVeg> {
       child: GridView.count(
         childAspectRatio: 2.0,
         crossAxisCount:
-        MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
+            MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
         children: List.generate(
           kNonVegList.length,
-              (index) => buildCategory(index),
+          (index) => buildCategory(index),
         ),
       ),
     );

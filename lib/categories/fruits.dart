@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:cookbook/constants.dart';
-import 'package:cookbook/screens/basket.dart';
-import 'package:cookbook/constants/colors.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/res/colors.dart';
+import 'package:cookbook/screens/basket.dart';
 
 class Fruits extends StatefulWidget {
   @override
@@ -18,10 +20,10 @@ class _FruitsState extends State<Fruits> {
       child: GridView.count(
         childAspectRatio: 2.0,
         crossAxisCount:
-        MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
+            MediaQuery.of(context).orientation == Orientation.portrait ? 1 : 2,
         children: List.generate(
           kFruitsList.length,
-              (index) => buildCategory(index),
+          (index) => buildCategory(index),
         ),
       ),
     );
@@ -57,7 +59,7 @@ class _FruitsState extends State<Fruits> {
             child: GestureDetector(
               onTap: () {
                 setState(() {
-                  if(list.contains(itemName)) {
+                  if (list.contains(itemName)) {
                     list.remove(itemName);
                   } else {
                     list.add(itemName);
@@ -67,7 +69,9 @@ class _FruitsState extends State<Fruits> {
               child: Container(
                 margin: EdgeInsets.only(top: 72, bottom: 16.0),
                 decoration: BoxDecoration(
-                  color: list.contains(itemName) ? kCardSelectedColorV : kCardUnselectedColorV,
+                  color: list.contains(itemName)
+                      ? kCardSelectedColorV
+                      : kCardUnselectedColorV,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(24.0),
                     bottomRight: Radius.circular(24.0),

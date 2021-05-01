@@ -1,7 +1,9 @@
-import 'package:cookbook/constants.dart';
-import 'package:cookbook/constants/colors.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:cookbook/constants.dart';
+import 'package:cookbook/res/colors.dart';
 
 Set<String> favoriteDishes = Set<String>();
 
